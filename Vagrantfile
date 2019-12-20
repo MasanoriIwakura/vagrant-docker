@@ -13,6 +13,11 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/bionic64"
+  config.disksize.size = "50GB"
+
+  # GitHubのSSHキーをホストと共有する設定
+  # ホスト側で[ssh-add -K ~/.ssh/id_rsa]を実行する必要がある
+  config.ssh.forward_agent = true
 
   config.vm.provision :shell, path: "dockerinstall.sh"
 
