@@ -15,6 +15,10 @@ sudo add-apt-repository \
     stable"
 
 sudo apt update
-sudo apt -y install docker-ce docker-ce-cli containerd.io
+sudo apt -y install docker-ce docker-ce-cli containerd.io docker-compose
+
+# permission settings
+sudo usermod -aG docker vagrant
+sudo systemctl restart docker
 
 exit 0
